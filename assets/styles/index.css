@@ -21,11 +21,13 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    margin: 10px;
 }
 
 .container h1 {
     font-size: 22px;
     margin-bottom: 30px;
+    font-weight: bold;
 }
 
 .container form {
@@ -57,14 +59,16 @@ body {
     align-items: center;
     width: 100%;
     font-size: 14px;
+
 }
 
 .terms {
     display: flex;
     align-items: center;
     gap: 5px;
-    margin-bottom: 20px;
     font-size: 14px;
+    color: rgb(109, 104, 104);
+
 }
 
 .container form button {
@@ -75,7 +79,7 @@ body {
     width: 100%;
     padding: 10px 0;
     border-radius: 4px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .container form a {
@@ -89,4 +93,5 @@ body {
 
 .container form p {
     font-size: 14px;
+    color: rgb(109, 104, 104);
 }

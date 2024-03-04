@@ -25,7 +25,7 @@
                     <input type="checkbox">
                     <span>Remember me</span>
                 </div>
-                <span>Forgot password?</span>
+                <span><a href="/forgot-password">Forgot password?</a></span>
             </div>
             <button>Login Now</button>
             <p>Don't have an account? <a href="/signup">Signup now</a></p>
