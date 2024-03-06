@@ -14,11 +14,11 @@
         <form>
             <fieldset>
                 <img src="../assets/images/mail.svg" alt="">
-                <input type="email" placeholder="Enter your email">
+                <input type="email" placeholder="Enter your email" name="email">
             </fieldset>
             <fieldset>
                 <img src="../assets/images/lock.svg" alt="">
-                <input type="password" placeholder="Confirm a password">
+                <input type="password" placeholder="Confirm a password" name="password">
             </fieldset>
             <div class="spans">
                 <div class="terms">
