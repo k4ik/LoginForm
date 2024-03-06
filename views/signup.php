@@ -11,22 +11,22 @@
 <body>
     <div class="container">
         <h1>Registration</h1>
-        <form>
+        <form action="../controller/SignupController.php" method="POST">
             <fieldset>
                 <img src="../assets/images/user.svg" alt="">
-                <input type="email" placeholder="Enter your name">
+                <input type="text" placeholder="Enter your name" name="username">
             </fieldset>
             <fieldset>
                 <img src="../assets/images/mail.svg" alt="">
-                <input type="email" placeholder="Enter your email">
+                <input type="email" placeholder="Enter your email" name="email">
             </fieldset>
             <fieldset>
                 <img src="../assets/images/lock.svg" alt="">
-                <input type="password" placeholder="Create a password">
+                <input type="password" placeholder="Create a password" name="password">
             </fieldset>
             <fieldset>
                 <img src="../assets/images/lock.svg" alt="">
-                <input type="password" placeholder="Confirm a password">
+                <input type="password" placeholder="Confirm a password" name="confirmPassword">
             </fieldset>
             <div class="terms">
                 <input type="checkbox">
