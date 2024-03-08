@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Login</h1>
-        <form>
+        <form action="../controller/LoginController.php" method="POST">
             <fieldset>
                 <img src="../assets/images/mail.svg" alt="">
                 <input type="email" placeholder="Enter your email" name="email">
