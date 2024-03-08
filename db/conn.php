@@ -14,5 +14,4 @@
     //$row = pg_fetch_row($results);
     //echo $row[0] . "\n";
     // Closing connection
-    pg_close($con);
 ?>
