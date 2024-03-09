@@ -16,7 +16,7 @@
             </button>
         </a>
         <h1>Forgot Password</h1>
-        <form>
+        <form action="../controller/ForgotPasswordController.php" method="post">
             <fieldset>
                 <img src="../assets/images/mail.svg" alt="">
                 <input type="email" placeholder="Enter your email" name="email">
