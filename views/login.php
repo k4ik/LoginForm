@@ -18,7 +18,7 @@
             </fieldset>
             <fieldset>
                 <img src="../assets/images/lock.svg" alt="">
-                <input type="password" placeholder="Confirm a password" name="password">
+                <input type="password" placeholder="Enter your password" name="password">
             </fieldset>
             <div class="spans">
                 <div class="terms">

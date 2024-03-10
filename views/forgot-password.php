@@ -23,11 +23,11 @@
             </fieldset>
             <fieldset>
                 <img src="../assets/images/lock.svg" alt="">
-                <input type="password" placeholder="Old Password" name="oldPassword">
+                <input type="password" placeholder="Enter your old password" name="oldPassword">
             </fieldset>
             <fieldset>
                 <img src="../assets/images/lock.svg" alt="">
-                <input type="password" placeholder="New password" name="newPassword">
+                <input type="password" placeholder="Create a new password" name="newPassword">
             </fieldset>
             <fieldset>
                 <img src="../assets/images/lock.svg" alt="">
