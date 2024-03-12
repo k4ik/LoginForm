@@ -14,16 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die('Query failed: ' . pg_last_error());
     } else {
         $row = pg_fetch_assoc($check_result);
-        if ($row) {
-            echo "Usuário encontrado:<br>";
-            echo "ID: " . $row["id"] . "<br>";
-            echo "Nome: " . $row["username"] . "<br>";
-            echo "Email: " . $row["email"] . "<br>";
-        } else {
+        if (!$row) {
             echo "Usuário não encontrado";
+        } else {
+            echo "Sucesso";
         }
     }
-    
 }
 
 pg_close($con);
+?>
