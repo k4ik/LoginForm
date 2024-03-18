@@ -10,25 +10,39 @@
         $newPassword = $_REQUEST["newPassword"];
         $confirmNewPassword = $_REQUEST["confirmNewPassword"];
 
-        if($oldPassword != "" && $newPassword == $confirmNewPassword) {
-            $query = "SELECT * FROM users WHERE email='$email' AND password='$oldPassword';";
-            $result = pg_query($con, $query);
-            if (!$result) {
-                die('Query failed: ' . pg_last_error());
-            }
+        if(empty($email) || empty($oldPassword) || empty($newPassword) || empty($confirmNewPassword)) {
+            echo "Preencha os campos";
+            return;
+        }
 
-            if(pg_num_rows($result) > 0) {
-                $updatePassword = "UPDATE users SET password='$newPassword' WHERE email='$email';";
-                if(!pg_query($con, $updatePassword)) {
-                    die('Error: ' . pg_last_error());
+        $query = "SELECT * FROM users WHERE email='$email' AND password='$oldPassword';";
+        $check_result = pg_query($con, $query);
+
+        if(!$check_result) {
+            echo "Erro ao executar a query";
+        } else {
+            if(pg_num_rows($check_result) == 1) {
+                if($oldPassword == $newPassword) {
+                    echo "A nova senha precisa ser diferente da atual";
+                    return;
+                }
+
+                if($newPassword != $confirmNewPassword) {
+                    echo "As senhas não coincidem";
+                    return;
+                } 
+
+                $query2 = "UPDATE users SET password='$newPassword' WHERE email='$email';";
+                $check_result2 = pg_query($con, $query2);
+                if(!$check_result2) {
+                    echo "Erro ao executar a query!";
                 } else {
-                    echo "Senha atualizada com sucesso";
+                    echo "Senha alterada com sucesso";
                 }
             } else {
-                echo "Senha antiga incorreta";
+                echo "Usuário não encontrado";
             }
-        } else {
-            echo "As senhas não coincidem ou a senha antiga está vazia";
         }
+    
     }
 ?>
