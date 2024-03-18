@@ -11,7 +11,7 @@
         $confirmNewPassword = $_REQUEST["confirmNewPassword"];
 
         if(empty($email) || empty($oldPassword) || empty($newPassword) || empty($confirmNewPassword)) {
-            echo "Preencha os campos";
+            echo "Fill in the fields!";
             return;
         }
 
@@ -19,28 +19,28 @@
         $check_result = pg_query($con, $query);
 
         if(!$check_result) {
-            echo "Erro ao executar a query";
+            echo "An error has occurred! Try again!";
         } else {
             if(pg_num_rows($check_result) == 1) {
                 if($oldPassword == $newPassword) {
-                    echo "A nova senha precisa ser diferente da atual";
+                    echo "The new password must be different from the current one";
                     return;
                 }
 
                 if($newPassword != $confirmNewPassword) {
-                    echo "As senhas não coincidem";
+                    echo "Passwords do not match";
                     return;
                 } 
 
                 $query2 = "UPDATE users SET password='$newPassword' WHERE email='$email';";
                 $check_result2 = pg_query($con, $query2);
                 if(!$check_result2) {
-                    echo "Erro ao executar a query!";
+                    echo "An error has occurred! Try again!";
                 } else {
-                    echo "Senha alterada com sucesso";
+                    echo "Password changed successfully";
                 }
             } else {
-                echo "Usuário não encontrado";
+                echo "User not found";
             }
         }
     

@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     if(empty($email) || empty($password)) {
-        echo "Preencha os campos!";
+        echo "Fill in the fields!";
         return;
     }
 
@@ -17,12 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $check_result = pg_query($con, $query);
 
     if(!$check_result) {
-        echo "Erro ao executar a query.";
+        echo "An error has occurred! Try again!";
     } else {
         $row = pg_fetch_assoc($check_result);
 
         if($row["email"] != $email || $row["password"] != $password) {
-            echo "Email ou senha incorretos! Por favor verifique os dados!";
+            echo "Incorrect email or password! Please check the data!";
             return;
         } else {
             session_start();

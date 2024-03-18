@@ -11,7 +11,7 @@
         $confirmPassword = $_POST["confirmPassword"];
 
         if(empty($username)||empty($email) || empty($password) || empty($confirmPassword)) {
-            echo "Preencha os campos";
+            echo "Fill in the fields!";
             return;
         }
 
@@ -19,13 +19,13 @@
         $check_result = pg_query($con, $query);
 
         if(!$check_result) {
-            echo "Erro ao executar a query!";
+            echo "An error has occurred! Try again!";
             return;
         } else {
             $row = pg_fetch_assoc($check_result);
 
             if($row["email"] == $email) {
-                echo "Esse email já foi cadastrado";
+                echo "This email has already been registered!";
                 return;
             }
 
@@ -33,7 +33,7 @@
                 $query2 = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password') RETURNING id;";
                 $check_result2 = pg_query($con, $query2);
                 if(!$check_result2) {
-                    echo "Erro ao executar a query!";
+                    echo "An error has occurred! Try again!";
                 } else {
                     $row2 = pg_fetch_assoc($check_result2);
     
@@ -46,7 +46,7 @@
                     exit();
                 }
             } else {
-                echo "As senhas não combinam";
+                echo "The passwords do not match";
             }
         }
     }
