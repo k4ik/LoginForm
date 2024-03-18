@@ -2,6 +2,7 @@
 
 :root {
     --bg-color: rgb(72, 136, 209);
+    --hover-bg-color: rgb(62, 119, 184);
     --form-color: rgb(247, 242, 242);
 }
 
@@ -81,6 +82,11 @@ body {
     margin: 20px 0;
 }
 
+.container form button:hover {
+    transition: .5s;
+    background-color: var(--hover-bg-color);
+}
+
 .container form a {
     color: var(--bg-color);
     text-decoration: none;
@@ -99,8 +105,14 @@ body {
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.425);
     font-weight: bold;
     background-color: rgb(226, 217, 217);
     margin-bottom: 20px;
+}
+
+.forgot-password-button:hover {
+    transition: .5s;
+    background-color: rgb(209, 199, 199);
+
 }
