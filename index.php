@@ -3,7 +3,8 @@ $routes = [
     '/' => './views/login.php',
     '/signup' => './views/signup.php',
     '/forgot-password' => './views/forgot-password.php',
-    '/home' => './views/home.php'
+    '/home' => './views/home.php',
+    '/logout' => './includes/logout.php'
 ];
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
