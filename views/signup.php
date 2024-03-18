@@ -13,20 +13,20 @@
         <h1>Registration</h1>
         <form action="../controller/SignupController.php" method="POST">
             <fieldset>
-                <img src="../assets/images/user.svg" alt="">
+                <img src="../assets/images/user.svg" alt="user icon">
                 <input type="text" placeholder="Enter your name" name="username">
             </fieldset>
             <fieldset>
-                <img src="../assets/images/mail.svg" alt="">
+                <img src="../assets/images/mail.svg" alt="mail icon">
                 <input type="email" placeholder="Enter your email" name="email">
             </fieldset>
             <fieldset>
-                <img src="../assets/images/lock.svg" alt="">
+                <img src="../assets/images/lock.svg" alt="lock icon">
                 <input type="password" placeholder="Create a password" name="password">
             </fieldset>
             <fieldset>
-                <img src="../assets/images/lock.svg" alt="">
-                <input type="password" placeholder="Confirm a password" name="confirmPassword">
+                <img src="../assets/images/lock.svg" alt="lock icon">
+                <input type="password" placeholder="Confirm the password" name="confirmPassword">
             </fieldset>
             <div class="terms">
                 <input type="checkbox">

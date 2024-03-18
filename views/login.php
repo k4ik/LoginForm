@@ -11,13 +11,13 @@
 <body>
     <div class="container">
         <h1>Login</h1>
-        <form id="loginForm">
+        <form id="loginForm" action="../controller/LoginController.php" method="post">
             <fieldset>
-                <img src="../assets/images/mail.svg" alt="">
+                <img src="../assets/images/mail.svg" alt="mail icon">
                 <input type="email" placeholder="Enter your email" name="email">
             </fieldset>
             <fieldset>
-                <img src="../assets/images/lock.svg" alt="">
+                <img src="../assets/images/lock.svg" alt="lock icon">
                 <input type="password" placeholder="Enter your password" name="password">
             </fieldset>
             <div class="spans">
@@ -30,30 +30,6 @@
             <button>Login Now</button>
             <p>Don't have an account? <a href="/signup">Signup now</a></p>
         </form>
-        <div id="response" class="hidden"></div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('loginForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const formData = new FormData(this);
-                fetch('../controller/LoginController.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('response').innerHTML = data;
-                    document.getElementById('response').classList.remove('hidden');
-                    if (data === "Sucesso") {
-                        window.location.href = "/home";
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                });
-            });
-        });
-    </script>
 </body>
 </html>

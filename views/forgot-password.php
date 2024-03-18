@@ -18,19 +18,19 @@
         <h1>Forgot Password</h1>
         <form action="../controller/ForgotPasswordController.php" method="post">
             <fieldset>
-                <img src="../assets/images/mail.svg" alt="">
+                <img src="../assets/images/mail.svg" alt="mail icon">
                 <input type="email" placeholder="Enter your email" name="email">
             </fieldset>
             <fieldset>
-                <img src="../assets/images/lock.svg" alt="">
+                <img src="../assets/images/lock.svg" alt="lock icon">
                 <input type="password" placeholder="Enter your old password" name="oldPassword">
             </fieldset>
             <fieldset>
-                <img src="../assets/images/lock.svg" alt="">
+                <img src="../assets/images/lock.svg" alt="lock icon">
                 <input type="password" placeholder="Create a new password" name="newPassword">
             </fieldset>
             <fieldset>
-                <img src="../assets/images/lock.svg" alt="">
+                <img src="../assets/images/lock.svg" alt="lock icon">
                 <input type="password" placeholder="Confirm new password" name="confirmNewPassword">
             </fieldset>
             <button>Update Password</button>
