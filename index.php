@@ -4,7 +4,8 @@ $routes = [
     '/signup' => './views/signup.php',
     '/forgot-password' => './views/forgot-password.php',
     '/home' => './views/home.php',
-    '/logout' => './includes/logout.php'
+    '/logout' => './includes/logout.php',
+    '/verification-code' => './views/verification-code.php'
 ];
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

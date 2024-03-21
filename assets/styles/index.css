@@ -101,6 +101,11 @@ body {
     color: rgb(109, 104, 104);
 }
 
+.container form img {
+    width: 25px;
+    height: 25px;
+}
+
 .forgot-password-button {
     border-radius: 50%;
     width: 30px;
@@ -109,6 +114,11 @@ body {
     font-weight: bold;
     background-color: rgb(226, 217, 217);
     margin-bottom: 20px;
+}
+
+.forgot-password-button a {
+    text-decoration: none;
+    color: black;
 }
 
 .forgot-password-button:hover {
