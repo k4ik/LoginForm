@@ -16,19 +16,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "SELECT * FROM users WHERE email='$email' AND password='$password';";
     $check_result = pg_query($con, $query);
 
-    if(pg_num_rows($check_result) == 1) {
-        if(!isset($_SESSION)) {
-            session_start();
-        }
+    if(!$check_result) {
+        echo "An error has occurred! Try again!";
+    } else {
+        $row = pg_fetch_assoc($check_result);
 
-        $_SESSION["id"] = $row["id"];
-        $_SESSION["name"] = $row["username"];
-        $_SESSION["email"] = $row["email"];
+        if($row["email"] != $email || $row["password"] != $password) {
+            echo "Incorrect email or password! Please check the data!";
+            return;
+        } else {
+            session_start();
+            $_SESSION["id"] = $row["id"];
+            $_SESSION["name"] = $row["username"];
+            $_SESSION["email"] = $row["email"];
 
         header("Location: /home");
         exit();
-    } else {
-        echo "Incorrect email or password! Please check the data!";
+        }
     }
 }
 
