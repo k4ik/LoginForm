@@ -27,7 +27,7 @@
                 echo "An error has occurred! Try again!";
                 return;
             } else {
-                echo "Senha atualizada com sucesso!";
+                echo "Password updated successfully!";
                 $query3 = "UPDATE users SET verification_code = NULL WHERE verification_code='$code';";
                 pg_query($con, $query3);
             }

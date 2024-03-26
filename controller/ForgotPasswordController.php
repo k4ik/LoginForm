@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $mail->send();
         } catch (Exception $e) {
-            die("Erro");
+            die("Error when trying to send email");
         }
     } else {
         echo "User not found! Try Again.";
