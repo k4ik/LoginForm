@@ -1,5 +1,5 @@
 <?php 
-    include '../db/conn.php';
+    include '../includes/conn.php';
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $code = $_POST["code"];

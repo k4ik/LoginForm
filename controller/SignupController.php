@@ -1,5 +1,5 @@
 <?php 
-    include '../db/conn.php';
+    include '../includes/conn.php';
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: GET, POST");
     header("Access-Control-Allow-Headers: X-Requested-With, Content-Type");
