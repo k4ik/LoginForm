@@ -49,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Body .= "<p>Atenciosamente,<br>Equipe de Suporte.</p>";
 
             $mail->send();
+            echo "check your email inbox";
         } catch (Exception $e) {
             die("Error when trying to send email");
         }

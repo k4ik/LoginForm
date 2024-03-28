@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Registration</h1>
-        <form action="../controller/SignupController.php" method="POST">
+        <form id="signupForm">
             <fieldset>
                 <img src="../assets/images/user.svg" alt="user icon">
                 <input type="text" placeholder="Enter your name" name="username">
@@ -36,5 +36,31 @@
             <p>Already have an account? <a href="/">Login now</a></p>
         </form>
     </div>
+
+    <script>
+        document.querySelector("#signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var formData = new FormData(this);
+
+            fetch("../controller/SignupController.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+
+                if (data.trim() === "success") {
+                    window.location.replace("/home");
+                } else {
+                    alert(data);
+                }
+            })
+            .catch(error => {
+                console.error("Erro:" . error);
+            })
+        }) 
+    </script>
 </body>
 </html>

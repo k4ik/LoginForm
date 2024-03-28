@@ -42,7 +42,7 @@
                     $_SESSION["name"] = $username;
                     $_SESSION["email"] = $email;
     
-                    header("Location: /home");
+                    echo "success";
                     exit();
                 }
             } else {

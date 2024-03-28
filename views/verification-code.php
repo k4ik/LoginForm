@@ -16,21 +16,45 @@
             </a>
         </button>
         <h1>Verification Code</h1>
-        <form action="../controller/VerificationCodeController.php" method="post">
+        <form id="verificationForm">
             <fieldset>
                 <img src="../assets/images/key.svg" alt="mail icon">
                 <input type="text" placeholder="Enter your code" name="code">
             </fieldset>
             <fieldset>
                 <img src="../assets/images/lock.svg" alt="mail icon">
-                <input type="text" placeholder="Enter your new password" name="newPassword">
+                <input type="password" placeholder="Enter your new password" name="newPassword">
             </fieldset>
             <fieldset>
                 <img src="../assets/images/lock.svg" alt="mail icon">
-                <input type="text" placeholder="Confirm your new password" name="confirmedPassword">
+                <input type="password" placeholder="Confirm your new password" name="confirmedPassword">
             </fieldset>
             <button>Update password</button>
         </form>
     </div>
+
+    <script>
+        document.querySelector("#verificationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var formData = new FormData(this);
+
+            fetch("../controller/VerificationCodeController.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+                if (data.trim() === "Password updated successfully!") {
+                    window.location.replace("/home");
+                } else {
+                    alert(data);
+                }            })
+            .catch(error => {
+                console.error("Erro:" . error);
+            })
+        }) 
+    </script>
 </body>
 </html>

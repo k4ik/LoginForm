@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Login</h1>
-        <form id="loginForm" action="../controller/LoginController.php" method="post">
+        <form id="loginForm">
             <fieldset>
                 <img src="../assets/images/mail.svg" alt="mail icon">
                 <input type="email" placeholder="Enter your email" name="email">
@@ -31,5 +31,31 @@
             <p>Don't have an account? <a href="/signup">Signup now</a></p>
         </form>
     </div>
+
+    <script>
+        document.querySelector("#loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var formData = new FormData(this);
+
+            fetch("../controller/LoginController.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+
+                if (data.trim() === "success") {
+                    window.location.replace("/home");
+                } else {
+                    alert(data);
+                }
+            })
+            .catch(error => {
+                console.error("Erro:" . error);
+            })
+        }) 
+    </script>
 </body>
 </html>

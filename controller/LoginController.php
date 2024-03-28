@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["name"] = $row["username"];
             $_SESSION["email"] = $row["email"];
 
-            header("Location: /home");
+            echo "success";
             exit();
         }
     }
