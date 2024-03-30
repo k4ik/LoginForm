@@ -22,15 +22,15 @@
             echo "An error has occurred! Try again!";
             return;
         } else {
-            $row = pg_fetch_assoc($check_result);
-
-            if($row["email"] == $email) {
+            if(pg_num_rows($check_result) == 1) {
                 echo "This email has already been registered!";
                 return;
             }
 
             if($password == $confirmPassword) {
-                $query2 = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password') RETURNING id;";
+                $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+                $query2 = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password_hash') RETURNING id;";
                 $check_result2 = pg_query($con, $query2);
                 if(!$check_result2) {
                     echo "An error has occurred! Try again!";

@@ -20,7 +20,9 @@
         $check_result = pg_query($con, $query);
 
         if(pg_num_rows($check_result) == 1) {
-            $query2 = "UPDATE users SET password='$newPassword' WHERE verification_code='$code';";
+            $password_hash = password_hash($newPassword, PASSWORD_DEFAULT);
+
+            $query2 = "UPDATE users SET password='$password_hash' WHERE verification_code='$code';";
             $check_result2 = pg_query($con, $query2);
 
             if(!$check_result2){
