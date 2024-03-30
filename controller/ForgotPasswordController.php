@@ -38,15 +38,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->SMTPSecure = 'ssl';
             $mail->Port       = SMTP_PORT;
 
-            $mail->setFrom("kaik.e.l.couto@gmail.com", "Equipe de Suporte");
+            $mail->setFrom("ajsjhsagwha@gmail.com", "Support Team");
             $mail->addAddress($email);
             $mail->isHTML(true);
             $mail->CharSet = 'UTF-8';
-            $mail->Subject = "=?UTF-8?B?" . base64_encode("Redefinição de Senha - Código de Verificação: $verificationCode") . "?=";
-            $mail->Body = "<p>Para redefinir sua senha, acesse o link abaixo e insira o código de verificação fornecido:</p>";
+            $mail->Subject = "=?UTF-8?B?" . base64_encode("Password Reset - Verification Code: $verificationCode") . "?=";
+            $mail->Body = "<p>To reset your password, please follow the link below and enter the provided verification code:</p>";
             $mail->Body .= "<p>Link: http://localhost:8000/verification-code</p>";
-            $mail->Body .= "<p>Código de verificação: $verificationCode</p><br>";
-            $mail->Body .= "<p>Atenciosamente,<br>Equipe de Suporte.</p>";
+            $mail->Body .= "<p>Verification code: $verificationCode</p><br>";
+            $mail->Body .= "<p>Best regards,<br>Support Team.</p>";
 
             $mail->send();
             echo "check your email inbox";

@@ -32,6 +32,9 @@
                 echo "Password updated successfully!";
                 $query3 = "UPDATE users SET verification_code = NULL WHERE verification_code='$code';";
                 pg_query($con, $query3);
+
+                header("Location: /");
+                exit();
             }
         } else {
             echo "User not found! Check if you entered the code correctly and try again!";
