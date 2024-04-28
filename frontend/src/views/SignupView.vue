@@ -1,4 +1,5 @@
 <template>
+    <Message v-if="viewMessage" :message="message" />
     <main>
         <div class="container">
             <h1>Registration</h1>
@@ -19,7 +20,7 @@
                     <img src="../assets/images/lock.svg" alt="lock icon">
                     <input type="password" placeholder="Confirm the password" name="confirmPassword">
                 </fieldset>
-                <button>Register Now</button>
+                <button @click.prevent="submitData">Register Now</button>
                 <p>Already have an account? <a href="/">Login now</a></p>
             </form>
         </div>
@@ -27,8 +28,51 @@
 </template>
 
 <script>
+    import Message from '../components/Message.vue';
+
     export default {
-        
+        components: {
+            Message,
+        },
+        data() {
+            return {
+                viewMessage: false,
+                message: ""
+            }
+        },
+        methods: {
+            submitData() {
+                let form = document.getElementById("form")
+                let formData = new FormData(form);
+
+                fetch("http://localhost:8000/register",{
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => {
+                    return response.text(); 
+                })
+                .then(data => {
+                    if(data == "success"){
+                        this.$router.push("/home");
+                    } else {
+                        this.message = data;
+
+                        setTimeout(()=>{
+                            this.viewMessage = true;
+                        }, 1000);
+
+                        setTimeout(()=>{
+                            this.viewMessage = false;
+                        }, 5000);
+                    }
+                })
+                .catch(error =>{
+                    console.error(error);
+                })
+            },
+        },
+
     }
 </script>
 

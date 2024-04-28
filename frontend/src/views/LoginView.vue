@@ -1,4 +1,5 @@
 <template>
+    <Message v-if="viewMessage" :message="message" />
     <main>
         <div class="container">
             <h1>Login</h1>
@@ -18,7 +19,7 @@
                     </div>
                     <span><a href="/forgot-password">Forgot password?</a></span>
                 </div>
-                <button>Login Now</button>
+                <button @click.prevent="submitData">Login Now</button>
                 <p>Don't have an account? <a href="/signup">Signup now</a></p>
             </form>
         </div>
@@ -26,8 +27,51 @@
 </template>
 
 <script>
+    import Message from '../components/Message.vue';
+
     export default {
-        
+        components: {
+            Message,
+        },
+        data() {
+            return {
+                viewMessage: false,
+                message: ""
+            }
+        },
+        methods: {
+            submitData() {
+                let form = document.getElementById("form")
+                let formData = new FormData(form);
+
+                fetch("http://localhost:8000/login",{
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => {
+                    return response.text(); 
+                })
+                .then(data => {
+                    if(data == "success"){
+                        this.$router.push("/home");
+                    } else {
+                        this.message = data;
+
+                        setTimeout(()=>{
+                            this.viewMessage = true;
+                        }, 1000);
+
+                        setTimeout(()=>{
+                            this.viewMessage = false;
+                        }, 5000);
+                    }
+                })
+                .catch(error =>{
+                    console.error(error);
+                })
+            },
+        },
+
     }
 </script>
 
