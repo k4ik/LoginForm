@@ -1,30 +1,31 @@
 <template>
-    <Message v-if="viewMessage" :message="message" />
+    <Message v-if="viewMessage" :message="message" /> 
     <main>
         <div class="container">
-            <h1>Registration</h1>
+            <h1>Cadastro</h1>
             <form id="form">
                 <fieldset>
-                    <img src="../assets/images/user.svg" alt="user icon">
-                    <input type="text" placeholder="Enter your name" name="username">
+                    <img src="../assets/images/user.svg" alt="Ícone de usuário">
+                    <input type="text" placeholder="Digite seu nome" name="username">
                 </fieldset>
                 <fieldset>
-                    <img src="../assets/images/mail.svg" alt="mail icon">
-                    <input type="email" placeholder="Enter your email" name="email">
+                    <img src="../assets/images/mail.svg" alt="Ícone de e-mail">
+                    <input type="email" placeholder="Digite seu e-mail" name="email">
                 </fieldset>
                 <fieldset>
-                    <img src="../assets/images/lock.svg" alt="lock icon">
-                    <input type="password" placeholder="Create a password" name="password">
+                    <img src="../assets/images/lock.svg" alt="Ícone de cadeado">
+                    <input type="password" placeholder="Crie uma senha" name="password">
                 </fieldset>
                 <fieldset>
-                    <img src="../assets/images/lock.svg" alt="lock icon">
-                    <input type="password" placeholder="Confirm the password" name="confirmPassword">
+                    <img src="../assets/images/lock.svg" alt="Ícone de cadeado">
+                    <input type="password" placeholder="Confirme a senha" name="confirmPassword">
                 </fieldset>
-                <button @click.prevent="submitData">Register Now</button>
-                <p>Already have an account? <a href="/">Login now</a></p>
+                <button @click.prevent="submitData">Registrar Agora</button>
+                <p>Já tem uma conta? <a href="/">Faça login</a></p>
             </form>
         </div>
-    </main>
+</main>
+
 </template>
 
 <script>

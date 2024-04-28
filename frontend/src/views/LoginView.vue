@@ -1,29 +1,30 @@
 <template>
     <Message v-if="viewMessage" :message="message" />
     <main>
-        <div class="container">
-            <h1>Login</h1>
-            <form id="form">
-                <fieldset>
-                    <img src="../assets/images/mail.svg" alt="mail icon">
-                    <input type="text" placeholder="Enter your email" name="email">
-                </fieldset>
-                <fieldset>
-                    <img src="../assets/images/lock.svg" alt="lock icon">
-                    <input type="password" placeholder="Enter your password" name="password">
-                </fieldset>
-                <div class="spans">
-                    <div class="terms">
-                        <input type="checkbox">
-                        <span>Remember me</span>
-                    </div>
-                    <span><a href="/forgot-password">Forgot password?</a></span>
+    <div class="container">
+        <h1>Login</h1>
+        <form id="form">
+            <fieldset>
+                <img src="../assets/images/mail.svg" alt="Ícone de e-mail">
+                <input type="text" placeholder="Digite seu e-mail" name="email">
+            </fieldset>
+            <fieldset>
+                <img src="../assets/images/lock.svg" alt="Ícone de cadeado">
+                <input type="password" placeholder="Digite sua senha" name="password">
+            </fieldset>
+            <div class="spans">
+                <div class="terms">
+                    <input type="checkbox">
+                    <span>Lembrar-me</span>
                 </div>
-                <button @click.prevent="submitData">Login Now</button>
-                <p>Don't have an account? <a href="/signup">Signup now</a></p>
-            </form>
-        </div>
-    </main>
+                <span><a href="/forgot-password">Esqueceu a senha?</a></span>
+            </div>
+            <button @click.prevent="submitData">Entrar</button>
+            <p>Ainda não tem uma conta? <a href="/signup">Cadastre-se agora</a></p>
+        </form>
+    </div>
+</main>
+
 </template>
 
 <script>

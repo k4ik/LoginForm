@@ -7,21 +7,21 @@
                     <p><</p>
                 </a>
             </button>
-            <h1>Verification Code</h1>
+            <h1>Código de Verificação</h1>
             <form id="form">
                 <fieldset>
-                    <img src="../assets/images/key.svg" alt="mail icon">
-                    <input type="text" placeholder="Enter your code" name="code">
+                    <img src="../assets/images/key.svg" alt="Ícone de chave">
+                    <input type="text" placeholder="Digite seu código" name="code">
                 </fieldset>
                 <fieldset>
-                    <img src="../assets/images/lock.svg" alt="mail icon">
-                    <input type="password" placeholder="Enter your new password" name="newPassword">
+                    <img src="../assets/images/lock.svg" alt="Ícone de cadeado">
+                    <input type="password" placeholder="Digite sua nova senha" name="newPassword">
                 </fieldset>
                 <fieldset>
-                    <img src="../assets/images/lock.svg" alt="mail icon">
-                    <input type="password" placeholder="Confirm your new password" name="confirmedPassword">
+                    <img src="../assets/images/lock.svg" alt="Ícone de cadeado">
+                    <input type="password" placeholder="Confirme sua nova senha" name="confirmedPassword">
                 </fieldset>
-                <button @click.prevent="submitData">Update password</button>
+                <button @click.prevent="submitData">Atualizar senha</button>
             </form>
         </div>
     </main>
