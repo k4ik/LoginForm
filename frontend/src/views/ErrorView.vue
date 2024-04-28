@@ -13,5 +13,5 @@
 </script>
 
 <style lang="scss" scoped>
-
+@import "../assets/scss/_error.scss";
 </style>

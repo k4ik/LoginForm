@@ -1,0 +1,118 @@
+@import "./variables";
+
+$container-padding: 20px;
+$input-border-color: rgba(0, 0, 0, 0.438);
+$input-placeholder-color: 14px;
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: $main-color;
+
+    .container {
+        max-width: 400px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        padding: $container-padding;
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .back-button {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.404);
+
+            &:hover {
+                transition: .3s;
+                background-color: rgb(201, 195, 195);
+            }
+
+            a {
+                color: #000;
+                text-decoration: none;
+                font-size: 20px;
+            }
+        }
+
+        #form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            fieldset {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                border: none;
+    
+                input {
+                    width: 100%;
+                    outline: none;
+                    border: none;
+                    font-size: $input-placeholder-color;
+                    border-bottom: 1px solid $input-border-color;
+                    padding: 5px;
+
+                    &::placeholder {
+                        font-size: $input-placeholder-color;
+                    }
+                }
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        
+            .spans {
+                display: flex;
+                justify-content: space-between;
+                font-size: $input-placeholder-color;
+                gap: 5px;
+        
+                & .terms {
+                    display: flex;
+                    gap: 5px;
+                    font-size: $input-placeholder-color;
+                }
+            }
+        
+            button {
+                width: 100%;
+                background-color: $main-color;
+                padding: 5px;
+                border: none;
+                color: #fff;
+
+                &:hover {
+                    transition: .5s;
+                    background-color: $hover-color;
+                }
+            }
+        
+            p {
+                text-align: center;
+                font-size: $input-placeholder-color;
+            }
+
+            a {
+                color: $main-color;
+                text-decoration: none;
+
+                &:hover {
+                    transition: .4s;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
