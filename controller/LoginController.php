@@ -1,8 +1,9 @@
 <?php
-include '../includes/conn.php';
+include '../vendor/includes/conn.php';
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST");
 header("Access-Control-Allow-Headers: X-Requested-With, Content-Type");
+use Respect\Validation\Validator as v;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
@@ -10,6 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if(empty($email) || empty($password)) {
         echo "Fill in the fields!";
+        return;
+    }
+
+    if(!v::email()->validate($email)) {
+        echo "Invalid email!";
         return;
     }
 

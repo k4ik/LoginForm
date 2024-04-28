@@ -4,9 +4,10 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: X-Requested-With, Content-Type");
 
-require '../includes/config.php';
+require '../vendor/includes/config.php';
 require '../vendor/autoload.php';
 
+use Respect\Validation\Validator as v;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -19,6 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return;
     }
 
+    if(!v::email()->validate($email)) {
+        echo "Invalid email!";
+        return;
+    }
+ 
     $query = "SELECT * FROM users WHERE email='$email';";
     $check_result = pg_query($con, $query);
 
