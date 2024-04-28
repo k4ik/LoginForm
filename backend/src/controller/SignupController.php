@@ -1,5 +1,4 @@
 <?php
-
 use Respect\Validation\Validator as v;
 
 class UserRegistration
