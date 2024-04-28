@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Form</title>
-    <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/styles/reset.css">
-    <link rel="stylesheet" href="../assets/styles/index.css">
-</head>
-<body>
+<template>
     <div class="container">
         <h1>Registration</h1>
         <form id="signupForm">
@@ -36,31 +26,10 @@
             <p>Already have an account? <a href="/">Login now</a></p>
         </form>
     </div>
+</template>
 
-    <script>
-        document.querySelector("#signupForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            var formData = new FormData(this);
-
-            fetch("../controller/SignupController.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data);
-
-                if (data.trim() === "success") {
-                    window.location.replace("/home");
-                } else {
-                    alert(data);
-                }
-            })
-            .catch(error => {
-                console.error("Erro:" . error);
-            })
-        }) 
-    </script>
-</body>
-</html>
+<script>
+    export default {
+        
+    }
+</script>
