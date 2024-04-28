@@ -16,12 +16,12 @@ class ForgotPassword
     public function getCode($email)
     {
         if (empty($email)) {
-            echo "Fill in the fields!";
+            echo "Preencha os campos!";
             return;
         }
     
         if(!v::email()->validate($email)) {
-            echo "Invalid email!";
+            echo "Email inválido!";
             return;
         }
      
@@ -44,23 +44,23 @@ class ForgotPassword
                 $mail->SMTPSecure = 'ssl';
                 $mail->Port       = SMTP_PORT;
     
-                $mail->setFrom("ajsjhsagwha@gmail.com", "Support Team");
+                $mail->setFrom("ajsjhsagwha@gmail.com", "Equipe de Suporte");
                 $mail->addAddress($email);
                 $mail->isHTML(true);
                 $mail->CharSet = 'UTF-8';
-                $mail->Subject = "=?UTF-8?B?" . base64_encode("Password Reset - Verification Code: $verificationCode") . "?=";
-                $mail->Body = "<p>To reset your password, please follow the link below and enter the provided verification code:</p>";
-                $mail->Body .= "<p>Link: http://localhost:8000/verification-code</p>";
-                $mail->Body .= "<p>Verification code: $verificationCode</p><br>";
-                $mail->Body .= "<p>Best regards,<br>Support Team.</p>";
+                $mail->Subject = "=?UTF-8?B?" . base64_encode("Redefinição de senha - Código de verificação: $verificationCode") . "?=";
+                $mail->Body = "<p>Para redefinir sua senha, por favor, siga o link abaixo e insira o código de verificação fornecido:</p>";
+                $mail->Body .= "<p>Link: http://localhost:8000/code</p>";
+                $mail->Body .= "<p>Código de verificação: $verificationCode</p><br>";
+                $mail->Body .= "<p>Atenciosamente,<br>Equipe de Suporte.</p>";                
     
                 $mail->send();
-                echo "check your email inbox";
+                echo "Olhe sua caixa de email!";
             } catch (Exception $e) {
-                die("Error when trying to send email");
+                die("Erro ao tentar enviar e-mail!");
             }
         } else {
-            echo "User not found! Try Again.";
+            echo "Usuário não encontrado! Verifique os dados!";
         }
     }
 }

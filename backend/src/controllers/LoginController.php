@@ -13,12 +13,12 @@ class Auth
     public function login($email, $password)
     {
         if (empty($email) || empty($password)) {
-            echo "Fill in the fields!";
+            echo "Preencha os campos!";
             return;
         }
 
         if (!v::email()->validate($email)) {
-            echo "Invalid email!";
+            echo "Email inválido!";
             return;
         }
 
@@ -26,24 +26,18 @@ class Auth
         $check_result = pg_query($this->con, $query);
 
         if (!$check_result) {
-            echo "An error has occurred! Try again!";
+            echo "Ocorreu um erro! Tente novamente!";
         } else {
             $row = pg_fetch_assoc($check_result);
 
             $password_verify = password_verify($password, $row["password"]);
 
             if ($row["email"] != $email || !$password_verify) {
-                echo "Incorrect email or password! Please check the data!";
+                echo "Email ou senha incorretos!";
                 return;
             }
 
-            session_start();
-            $_SESSION["id"] = $row["id"];
-            $_SESSION["name"] = $row["username"];
-            $_SESSION["email"] = $row["email"];
-
             echo "success";
-            exit();
         }
     }
 }

@@ -10,12 +10,12 @@ class Code {
     public function reset($code, $newPassword, $confirmedPassword)
     {
         if(empty($code) || empty($newPassword) || empty($confirmedPassword)){
-            echo "Fill in the fields!";
+            echo "Preencha os campos!";
             return;
         }
 
         if($newPassword != $confirmedPassword) {
-            echo "The passwords do not match";
+            echo "As senhas não combinam";
             return;
         }
 
@@ -29,18 +29,15 @@ class Code {
             $check_result2 = pg_query($this->con, $query2);
 
             if(!$check_result2){
-                echo "An error has occurred! Try again!";
+                echo "Ocorreu um erro! Tente Novamente";
                 return;
             } else {
-                echo "Password updated successfully!";
+                echo "Senha atualizada com sucesso!";
                 $query3 = "UPDATE users SET verification_code = NULL WHERE verification_code='$code';";
                 pg_query($this->con, $query3);
-
-                header("Location: /");
-                exit();
             }
         } else {
-            echo "User not found! Check if you entered the code correctly and try again!";
+            echo "Usuário não encontrado! Verifique os dados!";
         }
     }
 }
