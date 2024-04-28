@@ -1,0 +1,17 @@
+@import "./variables";
+
+.message {
+    background-color: rgb(221, 119, 119);
+    position: fixed;
+    right: 1%;
+    top: 5%;
+    border: 2px solid rgb(199, 106, 106);
+    padding: 2px 30px;
+    max-width: 300px;
+
+
+    p {
+        font-size: 14px;
+        text-align: center;
+    }
+}
